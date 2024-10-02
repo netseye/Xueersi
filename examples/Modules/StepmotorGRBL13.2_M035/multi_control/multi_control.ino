@@ -35,7 +35,7 @@ void setup() {
     // put your setup code here, to run once:
     M5.begin();
     M5.Power.begin();
-    Wire.begin(21, 22);
+    Wire.begin(21, 15);
     _GRBL_A.Init(&Wire);
     _GRBL_B.Init(&Wire);
     Serial.begin(115200);

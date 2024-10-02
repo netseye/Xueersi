@@ -285,7 +285,7 @@ void AppEndDevice() {
     zigbee.rebootModule();
 
     pinMode(5, INPUT_PULLUP);
-    Wire.begin(21, 22);
+    Wire.begin(21, 15);
 
     M5.Lcd.fillRect(20, 200, 280, 30, M5.Lcd.color565(56, 56, 56));
     M5.Lcd.drawRect(20, 200, 280, 30, M5.Lcd.color565(200, 200, 200));

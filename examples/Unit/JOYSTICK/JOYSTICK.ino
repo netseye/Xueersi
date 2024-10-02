@@ -23,7 +23,7 @@ void setup() {
     M5.Lcd.setCursor(70, 0, 4);
     M5.Lcd.println(("Joystick Test"));
     dacWrite(25, 0);  // disable the speak noise.  禁用语音噪音
-    Wire.begin(21, 22, 400000UL);
+    Wire.begin(21, 15, 400000UL);
 }
 
 char data[100];

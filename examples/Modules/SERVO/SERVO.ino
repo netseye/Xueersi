@@ -25,7 +25,7 @@ void setup() {
     M5.Lcd.setCursor(70, 100);
     M5.Lcd.print("Servo Example");
 
-    Wire.begin(21, 22, 100000UL);
+    Wire.begin(21, 15, 100000UL);
 }
 // addr 0x01 mean control the number 1 servo by us
 void Servo_write_us(uint8_t number, uint16_t us) {

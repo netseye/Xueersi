@@ -32,7 +32,7 @@ void setup() {
     M5.begin();
     M5.Power.begin();
     // M5.Lcd.setRotation(2);
-    M5.Lcd.fillScreen(ILI9341_BLACK);
+    M5.Lcd.fillScreen(ST7735_BLACK);
     setupScrollArea(TOP_FIXED_AREA, BOT_FIXED_AREA);
 }
 
@@ -47,10 +47,10 @@ void loop(void) {
                 pos[i] = 63;  // ~1 in 20 probability of a new character
             M5.Lcd.setTextColor(
                 pos[i] << 5,
-                ILI9341_BLACK);  // Set the green character brightness
+                ST7735_BLACK);  // Set the green character brightness
             if (pos[i] == 63)
-                M5.Lcd.setTextColor(ILI9341_WHITE,
-                                    ILI9341_BLACK);  // Draw white character
+                M5.Lcd.setTextColor(ST7735_WHITE,
+                                    ST7735_BLACK);  // Draw white character
             xPos += M5.Lcd.drawChar(random(32, 128), xPos, yDraw,
                                     1);  // Draw the character
         }

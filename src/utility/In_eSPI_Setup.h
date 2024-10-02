@@ -16,7 +16,7 @@
 // ##################################################################################
 
 // Only define one driver, the other ones must be commented out
-#define ILI9341_DRIVER
+// #define ILI9341_DRIVER
 //#define ST7735_DRIVER      // Define additional parameters below for this
 // display #define ILI9163_DRIVER     // Define additional parameters below for
 // this display #define S6D02A1_DRIVER #define RPI_ILI9486_DRIVER // 20MHz
@@ -29,8 +29,14 @@
 // parameters below for this display #define R61581_DRIVER #define
 // RM68140_DRIVER
 
-#include "ILI9341_Defines.h"
-#define TFT_DRIVER 0x9341
+// #include "ILI9341_Defines.h"
+// #define TFT_DRIVER 0x9341
+
+
+#define ST7735_DRIVER 
+
+#include "ST7735_Defines.h"
+#define  TFT_DRIVER 0x7735
 
 // Some displays support SPI reads via the MISO pin, other displays have a
 // single bi-directional SDA pin and the library will try to read this via the
@@ -188,10 +194,10 @@
 #define TFT_MISO 19
 #define TFT_MOSI 23
 #define TFT_SCLK 18
-#define TFT_CS   14  // Chip select control pin
-#define TFT_DC   27  // Data Command control pin
-#define TFT_RST  33  // Reset pin (could connect to Arduino RESET pin)
-#define TFT_BL   32  // LED back-light (required for M5Stack)
+#define TFT_CS   5  // Chip select control pin
+#define TFT_DC   4  // Data Command control pin
+#define TFT_RST  -1  // Reset pin (could connect to Arduino RESET pin)
+#define TFT_BL   -1  // LED back-light (required for M5Stack)
 
 // ######       EDIT THE PINs BELOW TO SUIT YOUR ESP32 PARALLEL TFT SETUP ######
 

@@ -56,7 +56,7 @@ void setup(void) {
     M5.Display.drawString("DAC2", M5.Display.width() / 2,
                           M5.Display.height() / 2 - 20);
     Wire.end();
-    Wire.begin(21, 22);
+    Wire.begin(21, 15);
 
     while (GP8413.begin() != 0) {
         Serial.println("Init Fail!");

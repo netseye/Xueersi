@@ -107,6 +107,8 @@
 #include "SD.h"
 #include "gitTagVersion.h"
 #include "IMU.h"
+#include "NTC.h"
+#include "LDR.h"
 #include "utility/Button.h"
 #include "utility/CommUtil.h"
 #include "utility/Config.h"
@@ -143,6 +145,18 @@ class M5Stack {
     // Hardware button C.  Call read() before checking if isPressed()
     Button BtnC = Button(BUTTON_C_PIN, true, DEBOUNCE_MS);
 
+    // Hardware button UP.  Call read() before checking if isPressed()
+    Button BtnUp = Button(BUTTON_UP_PIN, true, DEBOUNCE_MS);
+    
+    // Hardware button DOWN.  Call read() before checking if isPressed()
+    Button BtnDown = Button(BUTTON_DOWN_PIN, true, DEBOUNCE_MS);
+
+    // Hardware button LEFT.  Call read() before checking if isPressed()
+    Button BtnLeft = Button(BUTTON_LEFT_PIN, true, DEBOUNCE_MS);
+    
+    // Hardware button RIGHT.  Call read() before checking if isPressed()
+    Button BtnRight = Button(BUTTON_RIGHT_PIN, true, DEBOUNCE_MS);
+
     // SPEAKER on DAC pin 25
     SPEAKER Speaker;
 
@@ -156,6 +170,8 @@ class M5Stack {
 
     MPU6886 Mpu6886;
     SH200Q Sh200Q;
+    NTC Ntc;
+    LDR Ldr;
 
     /**
      * Function has been moved to Power class (for compatibility)
@@ -174,6 +190,10 @@ extern M5Stack M5;
 #define lcd     Lcd
 #define imu     Imu
 #define IMU     Imu
+#define ntc     Ntc
+#define NTC     Ntc
+#define ldr     Ldr
+#define LDR     Ldr
 #define MPU6886 Mpu6886
 #define mpu6886 Mpu6886
 #define SH200Q  Sh200Q

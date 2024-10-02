@@ -15,11 +15,11 @@ void M5Stack::begin(bool LCDEnable, bool SDEnable, bool SerialEnable, bool I2CEn
         isInited = true;
     }
 
-    for (auto gpio : (const uint8_t[]){18, 19, 23}) {
-        *(volatile uint32_t*)(GPIO_PIN_MUX_REG[gpio]) |= FUN_DRV_M;
-        gpio_pulldown_dis((gpio_num_t)gpio);
-        gpio_pullup_en((gpio_num_t)gpio);
-    }
+    // for (auto gpio : (const uint8_t[]){18, 19, 23}) {
+    //     *(volatile uint32_t*)(GPIO_PIN_MUX_REG[gpio]) |= FUN_DRV_M;
+    //     gpio_pulldown_dis((gpio_num_t)gpio);
+    //     gpio_pullup_en((gpio_num_t)gpio);
+    // }
     
     // UART
     if (SerialEnable == true) {
@@ -40,14 +40,14 @@ void M5Stack::begin(bool LCDEnable, bool SDEnable, bool SerialEnable, bool I2CEn
     }
 
     // TONE
-    // Speaker.begin();
+    Speaker.begin();
 
     // Set wakeup button
     Power.setWakeupButton(BUTTON_A_PIN);
 
     // I2C init
     if (I2CEnable == true) {
-        Wire.begin(21, 22);
+        Wire.begin(21, 15);
     }
 
     if (SerialEnable == true) {
@@ -56,7 +56,7 @@ void M5Stack::begin(bool LCDEnable, bool SDEnable, bool SerialEnable, bool I2CEn
 
     // if use M5GO button, need set gpio15 OD or PP mode to avoid affecting the
     // wifi signal
-    pinMode(15, OUTPUT_OPEN_DRAIN);
+    // pinMode(15, OUTPUT_OPEN_DRAIN);
 }
 
 void M5Stack::update() {
@@ -64,6 +64,10 @@ void M5Stack::update() {
     BtnA.read();
     BtnB.read();
     BtnC.read();
+    BtnUp.read();
+    BtnDown.read();
+    BtnLeft.read();
+    BtnRight.read();
 
     // Speaker update
     Speaker.update();

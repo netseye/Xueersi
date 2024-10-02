@@ -21,7 +21,7 @@ void setup() {
 void loop() {
     runTime = millis();
 
-    M5.Lcd.fillScreen(ILI9341_BLACK);
+    M5.Lcd.fillScreen(ST7735_BLACK);
     for (int px = 1; px < 320; px++) {
         for (int py = 0; py < 240; py++) {
             float x0 = (map(px, 0, 320, -250000 / 2, -242500 / 2)) /

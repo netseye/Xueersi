@@ -89,7 +89,7 @@ void POWER::begin() {
     uint8_t data;
 
     // Initial I2C
-    Wire.begin(21, 22);
+    Wire.begin(21, 15);
 
     // 450ma
     setVinMaxCurrent(CURRENT_400MA);

@@ -7,7 +7,8 @@ M5Display::M5Display() : TFT_eSPI() {
 
 void M5Display::begin() {
     TFT_eSPI::begin();
-    setRotation(1);
+    setRotation(3);
+    invertDisplay(false);
     fillScreen(0);
 
     // Init the back-light LED PWM
@@ -18,13 +19,13 @@ void M5Display::begin() {
 
 void M5Display::sleep() {
     startWrite();
-    writecommand(ILI9341_SLPIN);  // Software reset
+    writecommand(ST7735_SLPIN);  // Software reset
     endWrite();
 }
 
 void M5Display::wakeup() {
     startWrite();
-    writecommand(ILI9341_SLPOUT);
+    writecommand(ST7735_SLPOUT);
     endWrite();
 }
 
